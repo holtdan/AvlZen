@@ -1,0 +1,70 @@
+﻿@model AvlZen.Models.ScheduleFilterModel
+@{
+    ViewBag.Title = "AVLZen";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
+                @Html.DropDownList("DOW", ViewData["dows"] as SelectList);
+                <br />
+                @Html.EditorFor(x => x.SelectionPlaces)
+                <input type="submit" value="Refresh" />
+            }
+        </div>
+        <div class="col-md-10">
+            @if (Model.Classes != null)
+            {
+            <table>
+                @foreach (var c in Model.Classes.OrderBy(c=>c.Start).ThenBy(c=>c.PlaceCode))
+                    {
+                        var place = Model.Places.Where(p => p.Code == c.PlaceCode).Single();
+                    <tr>
+                        <td class="timeOfDay">@c.Start.ToString(@"h\:mm")</td>
+                        <td class="timeOfDay">@c.Stop.ToString(@"h\:mm")</td>
+                        <td><a href="@place.Link" target="_blank">@c.PlaceCode</a></td>
+                        <td>@c.What</td>
+                        <td>@c.Who</td>
+                    </tr>
+                    }
+            </table>
+            }
+            else
+            {
+                <div>no Model.Places</div>
+            }
+        </div>
+    </div>
+</div>
+<br />
+<div>
+    @if (TempData["Huh"] != null)
+    {
+        <div>@TempData["Huh"]</div>
+    }
+    else
+    {
+        <div>null</div>
+    }
+</div>
+@if (Model.Places != null)
+{
+<table>
+
+    @foreach (var place in Model.Places)
+    {
+        <tr>
+            <td>@place.Code</td>
+            <td>@place.Name</td>
+            <td>@place.Link</td>
+        </tr>
+    }
+
+</table>
+}
+else
+{
+    <div>no Model.Places</div>
+}
+

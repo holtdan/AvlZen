@@ -1,0 +1,6 @@
+﻿@model AvlZen.Models.PlaceSelectionModel
+
+@Html.CheckBoxFor(x => x.IsSelected)
+@Html.LabelFor(x => x.IsSelected, Model.PlaceCode)
+@Html.HiddenFor(x => x.IsSelected)
+<br />
