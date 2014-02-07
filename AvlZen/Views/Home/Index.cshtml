@@ -7,7 +7,7 @@
         <div class="col-md-2">
             @using (Html.BeginForm("Index", "Home", FormMethod.Post))
             {
-                @Html.DropDownList("DOW", ViewData["dows"] as SelectList);
+                @Html.DropDownList("DOW", Model.DaysList);
                 <br />
                 @Html.EditorFor(x => x.SelectionPlaces)
                 <input type="submit" value="Refresh" />
