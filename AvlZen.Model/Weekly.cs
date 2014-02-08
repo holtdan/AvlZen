@@ -13,8 +13,8 @@ namespace AvlZen.Model
     {
         public string PlaceCode { get; set; }
         public string DOW { get; set; }
-        public TimeSpan Start { get; set; }
-        public TimeSpan Stop { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime Stop { get; set; }
         public string What { get; set; }
         public string Who { get; set; }
 
@@ -25,8 +25,8 @@ namespace AvlZen.Model
         {
             PlaceCode = placeCode;
             DOW = dow;
-            Start = TimeSpan.Parse(start);
-            Start = TimeSpan.Parse(stop);
+            Start = DateTime.Parse(start);
+            Start = DateTime.Parse(stop);
             What = what;
             Who = who;
         }

@@ -21,8 +21,8 @@
                     {
                         var place = Model.Places.Where(p => p.Code == c.PlaceCode).Single();
                     <tr>
-                        <td class="timeOfDay">@c.Start.ToString(@"h\:mm")</td>
-                        <td class="timeOfDay">@c.Stop.ToString(@"h\:mm")</td>
+                        <td class="timeOfDay">@c.Start.ToString("t")</td>
+                        <td class="timeOfDay">@c.Stop.ToString(@"h\:mm tt")</td>
                         <td><a href="@place.Link" target="_blank">@c.PlaceCode</a></td>
                         <td>@c.What</td>
                         <td>@c.Who</td>
@@ -37,34 +37,3 @@
         </div>
     </div>
 </div>
-<br />
-<div>
-    @if (TempData["Huh"] != null)
-    {
-        <div>@TempData["Huh"]</div>
-    }
-    else
-    {
-        <div>null</div>
-    }
-</div>
-@if (Model.Places != null)
-{
-<table>
-
-    @foreach (var place in Model.Places)
-    {
-        <tr>
-            <td>@place.Code</td>
-            <td>@place.Name</td>
-            <td>@place.Link</td>
-        </tr>
-    }
-
-</table>
-}
-else
-{
-    <div>no Model.Places</div>
-}
-

@@ -56,8 +56,8 @@ namespace AvlZen.Model
                                {
                                    PlaceCode = place,
                                    DOW = dow,
-                                   Start = DateTime.Parse(dr[1].ToString()).TimeOfDay,
-                                   Stop = DateTime.Parse(dr[2].ToString()).TimeOfDay,
+                                   Start = DateTime.Parse(dr[1].ToString()),
+                                   Stop = DateTime.Parse(dr[2].ToString()),
                                    What = dr[3].ToString(),
                                    Who = dr[4].ToString()
                                };
