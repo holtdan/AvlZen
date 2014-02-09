@@ -12,16 +12,27 @@ namespace AvlZen.Controllers
     {
         public ActionResult Index()
         {
+            var cookie = Request.Cookies["selStudios"];
+
             var vm = new ScheduleFilterModel();
-            vm.Init();
+            vm.Init(cookie != null?cookie.Value:null);
 
             return View(vm);
         }
         [HttpPost]
         public ActionResult Index(ScheduleFilterModel model)
         {
-            model.Init();
+            model.Init(null);
 
+            var sels = from sp in model.SelectionPlaces
+                       where sp.IsSelected
+                       select sp.PlaceCode;
+            var selStr = string.Join(",", sels);
+            HttpCookie stdsCook = new HttpCookie("selStudios", selStr)
+            {
+                Expires = DateTime.Now.AddDays(5)
+            };
+            Response.AppendCookie(stdsCook);
             return View(model);
         }
         public ActionResult About()

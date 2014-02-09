@@ -37,3 +37,13 @@
         </div>
     </div>
 </div>
+<div>
+    @if (Request.Cookies["selStudios"]!=null)
+    {
+        <p>@Request.Cookies["selStudios"].Value</p>
+    }
+    else
+    {
+    <p>No cookie</p>
+    }
+</div>
