@@ -10,6 +10,7 @@ namespace AvlZen.Models
     public class PlaceSelectionModel
     {
         public bool IsSelected { get; set; }
-        public string PlaceCode { get; set; }
+        public string Place { get; set; }
+        public string Code { get; set; }
     }
 }

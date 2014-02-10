@@ -34,7 +34,8 @@ namespace AvlZen.Models
                     new PlaceSelectionModel
                     {
                         IsSelected = useStds != null && stdList.Contains(p.Code) ? true : useStds == null ? true : false,
-                        PlaceCode = p.Code
+                        Place = p.Name,
+                        Code = p.Code
                     }).ToList();
 
             var placeList = this.Places.ToArray();
@@ -42,9 +43,10 @@ namespace AvlZen.Models
             int i = 0;
             foreach (var sel in this.SelectionPlaces)
             {
-                sel.PlaceCode = placeList[i].Code; //HACK: 
+                sel.Place = placeList[i].Name; //HACK: 
+                sel.Code = placeList[i].Code; //HACK: 
                 if (sel.IsSelected)
-                    getPlaces.Add(sel.PlaceCode);
+                    getPlaces.Add(sel.Code);
                 ++i;
             }
 

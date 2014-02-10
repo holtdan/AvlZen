@@ -4,7 +4,7 @@
 }
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
             @using (Html.BeginForm("Index", "Home", FormMethod.Post))
             {
                 @Html.DropDownList("DOW", Model.DaysList);
@@ -12,8 +12,11 @@
                 @Html.EditorFor(x => x.SelectionPlaces)
                 <input type="submit" value="Refresh" />
             }
+            <p>Select the day-of-week and studios of interest.</p>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-6">
+            <p>These are the classes available on the selected day of week.</p>
+            <p><strong>@(Model.DOW)</strong> - @(Model.Classes.Count()) classes.</p>
             @if (Model.Classes != null)
             {
             <table>
@@ -34,6 +37,9 @@
             {
                 <div>no Model.Places</div>
             }
+        </div>
+        <div class="col-md-3">
+
         </div>
     </div>
 </div>

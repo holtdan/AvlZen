@@ -1,6 +1,15 @@
 ﻿@model AvlZen.Models.PlaceSelectionModel
 
 @Html.CheckBoxFor(x => x.IsSelected)
-@Html.LabelFor(x => x.IsSelected, Model.PlaceCode)
+@{
+var p = @Model.Place;
+var c = @Model.Code;
+}
+@Html.LabelFor(x => x.IsSelected, @Model.Place)
+@*<text>(</text>
+    @Html.LabelFor(x => x.IsSelected, @Model.Code)
+    <text>)</text>
+*@
+@* string.Format("{0}({1})", @(Model.Place), @(Model.Code)))*@
 @Html.HiddenFor(x => x.IsSelected)
 <br />

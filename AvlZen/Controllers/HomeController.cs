@@ -26,7 +26,7 @@ namespace AvlZen.Controllers
 
             var sels = from sp in model.SelectionPlaces
                        where sp.IsSelected
-                       select sp.PlaceCode;
+                       select sp.Code;
             var selStr = string.Join(",", sels);
             HttpCookie stdsCook = new HttpCookie("selStudios", selStr)
             {
