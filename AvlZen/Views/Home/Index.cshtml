@@ -2,54 +2,52 @@
 @{
     ViewBag.Title = "AVLZen";
 }
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-            {
-                @Html.DropDownList("DOW", Model.DaysList);
+<div class="bumpBoot wholePage">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 bgTan divRtBdr">
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                {
+                    @Html.DropDownList("DOW", Model.DaysList);
+                    <br />
+                    @Html.EditorFor(x => x.SelectionPlaces)
+                    <input type="submit" value="Refresh" class="btn bgMaroon" />
+                }
                 <br />
-                @Html.EditorFor(x => x.SelectionPlaces)
-                <input type="submit" value="Refresh" />
-            }
-            <p>Select the day-of-week and studios of interest.</p>
-        </div>
-        <div class="col-md-6">
-            <p>These are the classes available on the selected day of week.</p>
-            <p><strong>@(Model.DOW)</strong> - @(Model.Classes.Count()) classes.</p>
-            @if (Model.Classes != null)
-            {
-            <table>
-                @foreach (var c in Model.Classes.OrderBy(c=>c.Start).ThenBy(c=>c.PlaceCode))
-                    {
-                        var place = Model.Places.Where(p => p.Code == c.PlaceCode).Single();
-                    <tr>
-                        <td class="timeOfDay">@c.Start.ToString("t")</td>
-                        <td class="timeOfDay">@c.Stop.ToString(@"h\:mm tt")</td>
-                        <td><a href="@place.Link" target="_blank">@c.PlaceCode</a></td>
-                        <td>@c.What</td>
-                        <td>@c.Who</td>
-                    </tr>
-                    }
-            </table>
-            }
-            else
-            {
-                <div>no Model.Places</div>
-            }
-        </div>
-        <div class="col-md-3">
-
+                <p><small>Select the day-of-week and studios of interest then press Refresh.</small></p>
+            </div>
+            <div class="col-md-8 bgTan divBdr">
+                <p>These are the classes available on the selected day of week.</p>
+                <p><strong>@(Model.DOW)</strong> - @(Model.Classes.Count()) classes.</p>
+                @if (Model.Classes != null)
+                {
+                    <table class="table table-striped table-condensed table-responsive">
+                        <tr>
+                            <th>Begins</th>
+                            <th>Ends</th>
+                            <th>Studio</th>
+                            <th>Class</th>
+                            <th>Instructor</th>
+                        </tr>
+                        @foreach (var c in Model.Classes.OrderBy(c => c.Start).ThenBy(c => c.PlaceCode))
+                        {
+                            var place = Model.Places.Where(p => p.Code == c.PlaceCode).Single();
+                            <tr>
+                                <td class="timeOfDay">@c.Start.ToString("t").ToLower().Replace(' ', '\0')</td>
+                                <td class="timeOfDay">@c.Stop.ToString("t").ToLower().Replace(' ', '\0')</td>
+                                <td><a href="@place.Link" target="_blank">@c.PlaceCode</a></td>
+                                <td>@c.What</td>
+                                <td>@c.Who</td>
+                            </tr>
+                        }
+                    </table>
+                }
+                else
+                {
+                    <div>no Model.Places</div>
+                }
+            </div>
+            @*<div class="col-md-3 ads divBdr">*@
         </div>
     </div>
-</div>
-<div>
-    @if (Request.Cookies["selStudios"]!=null)
-    {
-        <p>@Request.Cookies["selStudios"].Value</p>
-    }
-    else
-    {
-    <p>No cookie</p>
-    }
 </div>
