@@ -2,6 +2,20 @@
     ViewBag.Title = "About";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+@*<h3>@ViewBag.Message</h3>*@
 
-<p>Use this area to provide additional information.</p>
+<p>AVL Zen provides a portal to the yoga classes available on a given day here in Asheville.</p>
+<p>
+    The schedule detail is pulled from information already on the web.
+    Every attempt is made to make sure that information is displayed accurately here
+    but for instructor substitutions, class cancellations, etc. please follow the given links to the studio's web site for scheduling verification.
+</p>
+<p>
+    If you 
+    <ul>
+        <li>see any errors</li>
+        <li>know of any other studios with monthly schedules</li>
+        <li>have comments or suggestions</li>
+    </ul>
+    please use the @Html.ActionLink("Contact","Contact") page or email us directly at <a href="mailto:postmaster@avlzen.com">postmaster@avlzen.com</a>
+</p>
