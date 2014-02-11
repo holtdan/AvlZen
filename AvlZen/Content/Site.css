@@ -111,9 +111,17 @@ td.timeOfDay {
     color : #9f4638;
     font-weight:bold;
     font-size: 14pt;
+    /*text-align:center;*/
+    padding-left:4px;
+}
+.myListHeader {
+  padding-left:4px;
 }
 label {
   font-size: 9pt;
+}
+.whiteText {
+    color:white;
 }
 select {
     padding: 3px;
