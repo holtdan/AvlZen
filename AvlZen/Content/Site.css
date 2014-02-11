@@ -107,6 +107,11 @@ td.timeOfDay {
 .bgPurple {
     background-color:#896f72;
 }
+.myTitle {
+    color : #9f4638;
+    font-weight:bold;
+    font-size: 14pt;
+}
 label {
   font-size: 9pt;
 }
