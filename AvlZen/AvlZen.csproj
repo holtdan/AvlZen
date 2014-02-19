@@ -117,6 +117,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\PlaceSelectionModel.cs" />
+    <Compile Include="Models\PlacesModel.cs" />
     <Compile Include="Models\ScheduleFilterModel.cs" />
     <Compile Include="Models\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

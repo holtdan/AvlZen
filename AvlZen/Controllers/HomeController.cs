@@ -44,9 +44,11 @@ namespace AvlZen.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            //ViewBag.Message = "Your contact page.";
+            var vm = new PlacesModel();
+            vm.Init();
 
-            return View();
+            return View(vm);
         }
     }
 }
