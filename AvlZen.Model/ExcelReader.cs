@@ -47,21 +47,28 @@ namespace AvlZen.Model
                 {
                     var dt = new DataTable();
                     var dataAdapter = new OleDbDataAdapter("select * from [" + place + "$]", connection);
-                    dataAdapter.Fill(dt);
+                    try
+                    {
+                        dataAdapter.Fill(dt);
 
-                    var hits = from dr in dt.Rows.Cast<DataRow>()
-                               where dr.ItemArray.Count() >= 5
-                               && dr[0].ToString() == dow.ToString()
-                               select new Weekly
-                               {
-                                   PlaceCode = place,
-                                   DOW = dow,
-                                   Start = DateTime.Parse(dr[1].ToString()),
-                                   Stop = DateTime.Parse(dr[2].ToString()),
-                                   What = dr[3].ToString(),
-                                   Who = dr[4].ToString()
-                               };
-                    list.AddRange(hits);
+                        var hits = from dr in dt.Rows.Cast<DataRow>()
+                                   where dr.ItemArray.Count() >= 5
+                                   && dr[0].ToString() == dow.ToString()
+                                   select new Weekly
+                                   {
+                                       PlaceCode = place,
+                                       DOW = dow,
+                                       Start = DateTime.Parse(dr[1].ToString()),
+                                       Stop = DateTime.Parse(dr[2].ToString()),
+                                       What = dr[3].ToString(),
+                                       Who = dr[4].ToString()
+                                   };
+                        list.AddRange(hits);
+                    }
+                    catch (Exception exc)
+                    {
+                        Console.WriteLine(exc.Message);
+                    }
                 }
             }
 
@@ -90,7 +97,7 @@ namespace AvlZen.Model
         {
             if (!File.Exists(path)) throw new FileNotFoundException(path);
 
-            return new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties='Excel 12.0 xml;HDR=YES;'");
+            return new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties='Excel 12.0 xml;HDR=YES;IMEX=1;'");
         }
     }
 }
