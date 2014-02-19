@@ -5,7 +5,7 @@
 <div class="bumpBoot wholePage">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 bgTan divRtBdr">
+            <div class="col-md-3 bgTan divBdr">
                 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
                 {
                     @Html.DropDownList("DOW", Model.DaysList);
@@ -17,7 +17,7 @@
                 <p><small>Select the day-of-week and studios of interest then press Refresh.</small></p>
                 <p class="whiteText"><small>Please click on studio links in the list for subs and/or class cancellation news.</small></p>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <div class="myTitle">AVL Zen : a Portal to Asheville Yoga Classes.</div>
                     <div class="bgTan divBdr">
                         <p class="myListHeader"><strong>@(Model.DOW)</strong> - @(Model.Classes.Count()) classes.</p>
