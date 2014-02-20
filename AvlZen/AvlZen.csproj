@@ -116,6 +116,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContactFormModel.cs" />
     <Compile Include="Models\PlaceSelectionModel.cs" />
     <Compile Include="Models\PlacesModel.cs" />
     <Compile Include="Models\ScheduleFilterModel.cs" />

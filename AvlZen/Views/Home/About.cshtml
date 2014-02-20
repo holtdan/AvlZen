@@ -4,19 +4,25 @@
 <h2>@ViewBag.Title.</h2>
 @*<h3>@ViewBag.Message</h3>*@
 
-<p>AVL Zen provides a portal to yoga classes available on any given day here in Asheville.</p>
-<p>
-    The schedule detail is taken from information already on the web. 
-    Every attempt is made to make sure that information is displayed accurately, 
-    but for instructor substitutions, class cancellations, etc., 
-    please follow the given links to the studio's web site for scheduling verification.
-</p>
-<p>
-    If you:
-    <ul>
-        <li>see any errors</li>
-        <li>know of any other studios with monthly schedules</li>
-        <li>have comments or suggestions</li>
-    </ul>
-    please use the @Html.ActionLink("Contact","Contact") page or email us directly at <a href="mailto:postmaster@avlzen.com">postmaster@avlzen.com</a>
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 bgTan divBdr">
+            <p class="myListHeader">AVL Zen provides a portal to yoga classes available on any given day here in Asheville.</p>
+            <p>
+                The schedule detail is taken from information already on the web.
+                Every attempt is made to make sure that information is displayed accurately,
+                but for instructor substitutions, class cancellations, etc.,
+                please follow the given links to the studio's web site for scheduling verification.
+            </p>
+            <p>
+                If you:
+                <ul>
+                    <li>see any errors</li>
+                    <li>know of any other studios with monthly schedules</li>
+                    <li>have comments or suggestions</li>
+                </ul>
+                please use the @Html.ActionLink("Contact", "Contact") page or email us directly at <a href="mailto:info@avlzen.com">info@avlzen.com</a>
+            </p>
+        </div>
+    </div>
+</div>

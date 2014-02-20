@@ -123,6 +123,9 @@ label {
 .whiteText {
     color:white;
 }
+/*.blackText {
+    color:black;
+}*/
 select {
     padding: 3px;
     margin: 3px;
@@ -134,9 +137,9 @@ select {
     border:none;
     outline:none;
 }
-input {
+/*input {
     color:white;
-}
+}*/
 .table-scrollable{
     overflow: auto;
 }
