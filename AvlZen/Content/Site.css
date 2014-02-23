@@ -1,4 +1,67 @@
-﻿/*$clrBrown = '#ba8563';*/
+﻿.bgBrown {
+    background-color:#ba8563;
+}
+.bgGray {
+    background-color:#e9e4d5;
+}
+.bgGreen {
+    background-color:#e4dcab;
+}
+.bgTan {
+    background-color:#deb976;
+}
+.bgDkBlue {
+    background-color:#454c5f;
+}
+.bgLtBlue {
+    background-color:#678a9d;
+}
+.bgMaroon {
+    background-color:#9f4638;
+}
+.bgPurple {
+    background-color:#896f72;
+}
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #e9e4d5;
+ }
+.table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+   background-color: #e4dcab;
+ }
+.table-scrollable{
+    overflow: auto;
+}
+td.timeOfDay {
+    text-align : right;
+}
+.divBdr {
+    border:0px solid;
+    border-radius:4px;
+}
+.divRtBdr {
+    border-right:1px solid;
+    border-radius:4px;
+    /*border-color:white;*/
+}
+.myTitle {
+    color : #9f4638;
+    font-weight:bold;
+    font-size: 14pt;
+    /*text-align:center;*/
+    padding-left:4px;
+}
+.myListHeader {
+  padding-left:4px;
+}
+.whiteText {
+    color:white;
+}
+/*.blackText {
+    color:black;
+}*/
+/*$clrBrown = '#ba8563';*/
 
 /*body {
     padding: 60px 0px 0px 0px
@@ -49,83 +112,10 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
-/*
-table
-{
-    border-collapse:collapse;
-}
-table, th, td
-{
-    border: 1px solid black;
-    padding:5px;
-}
-*/
-/*tr:nth-child(even) {
-    background-color: #eeeeee;
-}*/
-.table-striped>tbody>tr:nth-child(odd)>td, 
-.table-striped>tbody>tr:nth-child(odd)>th {
-   background-color: #e9e4d5;
- }
-.table-striped>tbody>tr:nth-child(even)>td, 
-.table-striped>tbody>tr:nth-child(even)>th {
-   background-color: #e4dcab;
- }
-td.timeOfDay {
-    text-align : right;
-}
-.divBdr {
-    border:0px solid;
-    border-radius:4px;
-}
-.divRtBdr {
-    border-right:1px solid;
-    border-radius:4px;
-    /*border-color:white;*/
-}
-.bgBrown {
-    background-color:#ba8563;
-}
-.bgGray {
-    background-color:#e9e4d5;
-}
-.bgGreen {
-    background-color:#e4dcab;
-}
-.bgTan {
-    background-color:#deb976;
-}
-.bgDkBlue {
-    background-color:#454c5f;
-}
-.bgLtBlue {
-    background-color:#678a9d;
-}
-.bgMaroon {
-    background-color:#9f4638;
-}
-.bgPurple {
-    background-color:#896f72;
-}
-.myTitle {
-    color : #9f4638;
-    font-weight:bold;
-    font-size: 14pt;
-    /*text-align:center;*/
-    padding-left:4px;
-}
-.myListHeader {
-  padding-left:4px;
-}
+
 label {
   font-size: 9pt;
 }
-.whiteText {
-    color:white;
-}
-/*.blackText {
-    color:black;
-}*/
 select {
     padding: 3px;
     margin: 3px;
@@ -140,9 +130,7 @@ select {
 /*input {
     color:white;
 }*/
-.table-scrollable{
-    overflow: auto;
-}
+
 /*.cw-table-list {
     margin:0px !important;
     table-layout:fixed;  
@@ -180,4 +168,27 @@ select {
 }
 .navbar-custom .icon-bar {
   	background-color:#9f4638;
+}
+
+
+/* Responsive iFrame for Google Calendar/Maps */
+ 
+.responsive-iframe-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 0;
+    overflow: hidden;
+}
+ 
+.responsive-iframe-container iframe,   
+.vresponsive-iframe-container object,  
+.vresponsive-iframe-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
 }

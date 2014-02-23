@@ -2,14 +2,14 @@
 @{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 @*<h3>@ViewBag.Message</h3>*@
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3 bgTan divBdr">
             <p class="myListHeader">For questions, suggestions and corrections regarding the AVL Zen site:</p>
-            <address>
+            @*<address>*@
                 <strong>Contact:</strong> <a href="mailto:info@avlzen.com">info@avlzen.com</a>
                 <p>...or use this form:</p>
                 @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { id = "contact-form" }))
@@ -28,7 +28,7 @@
                         <input class="btn bgMaroon whiteText" data-type="submit" type="submit" value="Send" />
                     </fieldset>
                 }
-            </address>
+            @*</address>*@
         </div>
         <div class="col-md-5 col-md-offset-4 bgTan divBdr">
             @*<div class="myTitle">Yoga Studios</div>*@
