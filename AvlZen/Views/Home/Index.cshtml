@@ -2,6 +2,15 @@
 @{
     ViewBag.Title = "AVLZen";
 }
+<script type="text/javascript">
+    function checkAll() {
+        if ($("#checkAll1").is(':checked'))
+            $("#studioCheckboxes :input").each(function () { this.checked = true; });
+        else
+            $("#studioCheckboxes :input").each(function () { this.checked = false; });
+    }
+</script>
+
 <div class="bumpBoot wholePage">
     <div class="container-fluid">
         <div class="row">
@@ -10,13 +19,7 @@
                 {
                     @Html.DropDownList("DOW", Model.DaysList);
                     <br/>
-                    @*<button onclick="checkAll()" type="button" class="btn-xs btn-default bgMaroon whiteText">
-                        <span class="glyphicon glyphicon-check"></span><small>All</small>
-                    </button>
-                    <button onclick="uncheckAll()" type="button" class="btn-xs btn-default bgMaroon whiteText">
-                        <span class="glyphicon glyphicon-unchecked"></span><small>All</small>
-                    </button>
-                    <br />*@
+                    <input type="checkbox" id="checkAll1" onclick="checkAll()" /><label for="checkAll1"> select all</label><br/>
                     <div id="studioCheckboxes">
                         @Html.EditorFor(x => x.SelectionPlaces)
                     </div>
@@ -68,25 +71,4 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    function checkAll() {
-        $("#studioCheckboxes :input").each(function () { this.checked = true; });
-    }
-    function uncheckAll() {
-        $("#studioCheckboxes :input").each(function () { this.checked = false; });
-    }
-    //$(document).ready(function () {
-    //    $('#selecctall').click(function (event) {  //on click 
-    //        if (this.checked) { // check select status
-    //            $('.checkbox1').each(function () { //loop through each checkbox
-    //                this.checked = true;  //select all checkboxes with class "checkbox1"               
-    //            });
-    //        } else {
-    //            $('.checkbox1').each(function () { //loop through each checkbox
-    //                this.checked = false; //deselect all checkboxes with class "checkbox1"                       
-    //            });
-    //        }
-    //    });
 
-    //});
-</script>
