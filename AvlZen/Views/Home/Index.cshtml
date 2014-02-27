@@ -9,16 +9,29 @@
                 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
                 {
                     @Html.DropDownList("DOW", Model.DaysList);
-                    <br />
-                    @Html.EditorFor(x => x.SelectionPlaces)
-                    <input type="submit" value="Refresh" class="btn bgMaroon whiteText" />
+                    <br/>
+                    @*<button onclick="checkAll()" type="button" class="btn-xs btn-default bgMaroon whiteText">
+                        <span class="glyphicon glyphicon-check"></span><small>All</small>
+                    </button>
+                    <button onclick="uncheckAll()" type="button" class="btn-xs btn-default bgMaroon whiteText">
+                        <span class="glyphicon glyphicon-unchecked"></span><small>All</small>
+                    </button>
+                    <br />*@
+                    <div id="studioCheckboxes">
+                        @Html.EditorFor(x => x.SelectionPlaces)
+                    </div>
+    <input type="submit" value="Refresh" class="btn bgMaroon whiteText" />
                 }
                 <br />
                 <p><small>Select the day-of-week and studios of interest then press Refresh.</small></p>
                 <p class="whiteText"><small>Please click on studio links in the list for subs and/or class cancellation news.</small></p>
             </div>
             <div class="col-md-9">
-                <div class="myTitle">AVL Zen : a Portal to Asheville Yoga Classes.</div>
+                <div class="myTitle">
+                    @*<img src="Content/Om.svg" width="38" />*@
+                    @*<span class="brandFont">AVL Zen</span> - <span class="myFont">a portal to Asheville Yoga Classes</span></div>*@
+                    <span class="brandFont">AVL Zen</span> - <span class="myFont">a portal to Asheville Yoga Classes</span>
+                </div>
                     <div class="bgTan divBdr">
                         <p class="myListHeader"><strong>@(Model.DOW)</strong> - @(Model.Classes.Count()) classes.</p>
                         @if (Model.Classes != null)
@@ -54,3 +67,26 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function checkAll() {
+        $("#studioCheckboxes :input").each(function () { this.checked = true; });
+    }
+    function uncheckAll() {
+        $("#studioCheckboxes :input").each(function () { this.checked = false; });
+    }
+    //$(document).ready(function () {
+    //    $('#selecctall').click(function (event) {  //on click 
+    //        if (this.checked) { // check select status
+    //            $('.checkbox1').each(function () { //loop through each checkbox
+    //                this.checked = true;  //select all checkboxes with class "checkbox1"               
+    //            });
+    //        } else {
+    //            $('.checkbox1').each(function () { //loop through each checkbox
+    //                this.checked = false; //deselect all checkboxes with class "checkbox1"                       
+    //            });
+    //        }
+    //    });
+
+    //});
+</script>

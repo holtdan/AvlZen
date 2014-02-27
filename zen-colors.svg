@@ -15,7 +15,10 @@
    inkscape:version="0.48.4 r9939"
    width="640"
    height="480"
-   sodipodi:docname="zen-colors.svg">
+   sodipodi:docname="zen-colors.svg"
+   inkscape:export-filename="C:\Ashebots\GitHub\AvlZen\zen-colors.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -24,7 +27,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -39,15 +42,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="758"
+     inkscape:window-width="500"
      inkscape:window-height="618"
      id="namedview4"
      showgrid="false"
      inkscape:zoom="0.57985258"
      inkscape:cx="342.63458"
      inkscape:cy="208.17261"
-     inkscape:window-x="310"
-     inkscape:window-y="40"
+     inkscape:window-x="723"
+     inkscape:window-y="34"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1" />
   <g
