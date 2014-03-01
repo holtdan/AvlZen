@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Contact";
 }
+
 <h2>@ViewBag.Title</h2>
 @*<h3>@ViewBag.Message</h3>*@
 
@@ -45,7 +46,10 @@
                 }
             @*</address>*@
         </div>
-        <div class="col-md-4 col-md-offset-5 bgTan divBdr">
+        <div class="col-md-5 bgTan divBdr">
+            <div id="map"></div>
+        </div>
+        <div class="col-md-4 bgTan divBdr">
             @*<div class="myTitle">Yoga Studios</div>*@
             @*<div class="bgTan divBdr">*@
                 <p class="myListHeader">For details and last-minute information about studios:</p>
@@ -60,8 +64,10 @@
             @foreach (var p in Model.PlacesModel.Places.OrderBy(p => p.Name))
             {
                 <tr>
-                    <td><a href="@p.Link" target="_blank">@p.Name</a></td>
-                    <td>@p.Code</td>
+                    <td>
+                        <input type="checkbox" class="mapCB" id="@p.Code" /><label for="@p.Code"> @p.Name</label>
+                    </td>
+                    <td><a href="@p.Link" target="_blank">@p.Code</a></td>
                 </tr>
             }
         </table>
@@ -76,3 +82,96 @@
         </div>
     </div>
 </div>
+@section Scripts{
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        var geocoder = new google.maps.Geocoder();
+        var myLatlng = new google.maps.LatLng(35.5806513, -82.5461539);
+        var mapOptions = { zoom: 12, center: myLatlng, mapTypeId: google.maps.MapTypeId.ROADMAP }
+        var map = new google.maps.Map($("#map").get(0), mapOptions);
+
+        infoWindow = new google.maps.InfoWindow({
+            content: ""
+        });
+        
+        function set(value) { // ugh
+            return value;
+        }
+        var jsModel = set(@Html.Raw(Json.Encode(Model.PlacesModel)));
+        var studioMap = new Array();
+        var infWins = new Array();
+
+        for (var i = 0; i < jsModel.Places.length; ++i) {
+            var place = jsModel.Places[i];
+            //studioIdx[i] = place.Code;
+            //studioTxt[i] = '<div id="content"><h1>' + place.Name + '</h1><p>' + place.Address + '</p></div>';
+            studioMap[i] = null;
+            infWins[i] = null;
+        }
+        function find(val) { // Find array element which has a key value of val 
+            for (var i = 0; i < jsModel.Places.length; ++i)
+                if (jsModel.Places[i].Code == val)
+                    return i;
+            return null;
+        }
+        function bindInfoWindow(marker, map, infWin, content) {
+            google.maps.event.addListener(marker, 'click', function () {
+                infWin.setContent(content);
+                infWin.open(map, marker);
+            });
+        }
+        $('.mapCB').click(function () {
+            var chk = this.checked;
+            var id = $(this).attr('id');
+            var idx = find(id);
+            var place = jsModel.Places[idx];
+            var mappedPt = studioMap[idx];
+            if (mappedPt != null)
+            {
+                if (!chk)
+                    mappedPt.setMap(null);
+                else
+                {
+                    mappedPt.setMap(map);
+                    map.setCenter(mappedPt.position);
+                }
+            }
+            else
+            {
+                geocoder.geocode({ address: place.Address }, function (results) {
+                    var marker = new google.maps.Marker({
+                        position: results[0].geometry.location,
+                        map: map,
+                        title: place.Name
+                    });
+                    studioMap[idx] = marker;
+
+                    map.setCenter(marker.position);
+
+                    bindInfoWindow(marker, map, infoWindow, 
+                        '<div id="content"><strong>' + place.Name + '</strong><p>' + place.Address + '</p></div>');
+                });
+                //infWins[idx] = new google.maps.InfoWindow({
+                //    content: contentString
+                //});
+                //var addListener = function (x) {
+
+                //    google.maps.event.addListener(studioMap[x], 'click', function () {
+                //        infWins[x].open(map, studioMap[x]);
+                //    });
+                //}
+                //addListener(idx);
+                //google.maps.event.addListener(studioMap[id], 'click', 'markerClick(event)' );
+                //    function () {
+                //    console.dir(this);
+                //    console.log(this);
+                //    var infowindow = new google.maps.InfoWindow({
+                //        content: contentString
+                //    });
+
+                //    infowindow.open(map, studioMap[id]);
+                //});
+            }
+        });
+    </script>
+}

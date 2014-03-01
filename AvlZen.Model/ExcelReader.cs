@@ -29,7 +29,8 @@ namespace AvlZen.Model
                     {
                         Code = dr[0].ToString(),
                         Name = dr[1].ToString(),
-                        Link = dr[2].ToString()
+                        Link = dr[2].ToString(),
+                        Address = dr[3].ToString(),
                     });
                 }
             }

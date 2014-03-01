@@ -209,3 +209,8 @@ select {
     width: 100% !important;
     height: 100% !important;
 }
+#map {
+    float: left;
+    width: 500px;
+    height: 400px;
+}
