@@ -23,43 +23,47 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3 bgTan divBdr">
-            <p class="myListHeader">For questions, suggestions and corrections regarding the AVL Zen site:</p>
-            @*<address>*@
+        <div id="equalheight">
+            <div class="col-md-3 bgTan divBdr sameHeight">
+                <p class="myListHeader">For questions, suggestions and corrections regarding the AVL Zen site:</p>
+                @*<address>*@
                 <strong>Contact:</strong> <a href="mailto:info@avlzen.com">info@avlzen.com</a>
                 <p>...or use this form:</p>
                 @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { id = "contact-form" }))
                 {
                     <fieldset>
-                        <p>Name (optional)<br />
+                        <p>
+                            Name (optional)<br />
                             @Html.TextBoxFor(model => model.Name)
                         </p>
-                        <p>Email (optional)<br />
+                        <p>
+                            Email (optional)<br />
                             @Html.TextBoxFor(model => model.Email)
                         </p>
-                        <p>Message (required)<br/>
-                        @Html.TextAreaFor(model => model.Message, new { style = "width:100%"})
+                        <p>
+                            Message (required)<br />
+                            @Html.TextAreaFor(model => model.Message, new { style = "width:100%" })
                         </p>
                         @*<input class="form-button" data-type="reset" value="Clear" />*@
                         <input class="btn bgMaroon whiteText" data-type="submit" type="submit" value="Send" />
                     </fieldset>
                 }
-            @*</address>*@
-        </div>
-        <div id="mapWrap" class="col-md-5 bgTan divBdr">
-            <div id="map"></div>
-        </div>
-        <div class="col-md-4 bgTan divBdr">
-            @*<div class="myTitle">Yoga Studios</div>*@
-            @*<div class="bgTan divBdr">*@
+                @*</address>*@
+            </div>
+            <div id="mapWrap" class="col-md-5 bgTan divBdr sameHeight">
+                <div id="map"></div>
+            </div>
+            <div class="col-md-4 bgTan divBdr sameHeight">
+                @*<div class="myTitle">Yoga Studios</div>*@
+                @*<div class="bgTan divBdr">*@
                 <p class="myListHeader">For details and last-minute information about studios, follow the links. Use the checkboxes to locate studios on the map:</p>
                 @if (Model.PlacesModel != null)
                 {
                     foreach (var p in Model.PlacesModel.Places.OrderBy(p => p.Name))
                     {
-                            <input type="checkbox" class="mapCB" id="@p.Code" /><label for="@p.Code"> @p.Name</label>
-                            <small><a href="@p.Link" target="_blank">@p.Code</a></small>
-                        <br/>
+                        <input type="checkbox" class="mapCB" id="@p.Code" /><label for="@p.Code"> @p.Name</label>
+                        <small><a href="@p.Link" target="_blank">@p.Code</a></small>
+                        <br />
                     }
 
                     <p>@(Model.PlacesModel.Places.Count()) studios.</p>
@@ -68,7 +72,8 @@
                 {
                     <div>no Model.Classes</div>
                 }
-            @*</div>*@
+                @*</div>*@
+            </div>
         </div>
     </div>
 </div>
