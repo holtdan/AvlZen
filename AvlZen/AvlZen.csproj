@@ -140,7 +140,6 @@
     <Content Include="App_Data\AvlZen.xlsx" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="App_Data\AvlZen_0.xlsx" />
     <Content Include="fonts\mvboli.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
