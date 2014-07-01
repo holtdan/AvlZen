@@ -11,6 +11,8 @@ namespace AvlZen.Model
 {
     public class Weekly
     {
+        public int ID { get; set; }
+        public int PlaceID { get; set; }
         public string PlaceCode { get; set; }
         public string DOW { get; set; }
         public DateTime Start { get; set; }

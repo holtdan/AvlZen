@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace AvlZen.Model
 {
-    [DebuggerDisplay("{Code} - {Name}")]
+    [DebuggerDisplay("{PlaceID}.{Code} - {Name}")]
     public class Place
     {
+        public int PlaceID { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
         public string Link { get; set; }
@@ -19,11 +20,5 @@ namespace AvlZen.Model
         public Place()
         {
         }
-        //public Place(string code, string name, string link)
-        //{
-        //    Code = code;
-        //    Name = name;
-        //    Link = link;
-        //}
     }
 }
